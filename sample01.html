@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style01.css">
+  <title>Document</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<h1>space-betweenで最後の行が左から揃わない<br>
+  ↓<br>
+  カラム数が決まってない・アイテム幅は固定<br>
+  ↓<br>
+  JavaScript(jQuery)で動的に&lt;li&gt;を追加する</h1>
+<body>
+  <ul class="item-list">
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+  </ul>
+  <script>
+    var $grid = $('.item-list'),   
+    emptyCells = [],
+    i;
+
+    // アイテム (li.item) の数だけ空のアイテム (li.cell.is-empty) を生成
+    for (i = 0; i < $grid.find('.item').length; i++) {
+        emptyCells.push($('<li>', { class: 'item is-empty' }));
+    }
+
+    $grid.append(emptyCells);
+  </script>
+</body>
+</html>
